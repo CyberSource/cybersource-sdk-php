@@ -1,0 +1,30 @@
+{
+  "name": "cybersource/sdk-php",
+  "description": "CyberSource PHP SOAP client",
+  "keywords": [
+    "cybersource",
+    "payments",
+    "api"
+  ],
+  "homepage": "https://github.com/CyberSource",
+  "license": "",
+  "authors": [
+    {
+      "name": "CyberSource",
+      "homepage": "https://github.com/CyberSource"
+    }
+  ],
+  "require": {
+    "php": ">=5.2",
+    "ext-curl": "*",
+    "ext-openssl": "*",
+    "ext-soap": "*"
+  },
+  "require-dev": {
+      "phpunit/phpunit": "3.7.*"
+  },
+  "autoload": {
+    "classmap": ["lib/"]
+  },
+  "include-path": ["lib/conf/"]
+}

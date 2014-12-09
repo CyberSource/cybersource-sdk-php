@@ -6,7 +6,7 @@ This is the PHP client for the CyberSource SOAP Toolkit API.
 ##Prerequisites
 
 - PHP 5.3 or above
-   - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://http://php.net/manual/en/book.soap.php) extensions must be enabled
+   - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://php.net/manual/en/book.soap.php) extensions must be enabled
 - A CyberSource merchant ID and transaction key. You will need to set these in the cybs.ini file in ````lib/conf````.
 
 

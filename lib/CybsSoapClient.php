@@ -105,9 +105,10 @@ class CybsSoapClient extends SoapClient
     }
 
     /**
-     * @param string The desired reference code for this request.
+     * Returns an object initialized with basic client information.
      *
-     * @return stdClass An object initialized with the client's merchant ID.
+     * @param string $merchantReferenceCode Desired reference code for the request
+     * @return stdClass An object initialized with the basic client info.
      */
     public function createRequest($merchantReferenceCode)
     {

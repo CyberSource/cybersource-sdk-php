@@ -33,6 +33,13 @@ require_once('/path/to/project/lib/CybsSoapClient.php');
 ``` 
 
 
+##Running the Samples
+The samples in the ````samples```` directory can be run from the project root. For example:
+
+```
+php samples/Sale.php
+```
+
 ##Tests
 
 In order to run tests, you'll need [PHPUnit](https://phpunit.de). You'll also need to use [Composer](https://getcomposer.org/) for autoloading. If you used Composer to install the client, this should already be set up. Otherwise, to use Composer for autoloading only, from the project root run

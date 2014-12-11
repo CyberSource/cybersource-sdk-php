@@ -5,3 +5,5 @@
 /composer.phar
 /composer.lock
 
+# CyberSource config parameters
+/lib/conf/cybs.ini

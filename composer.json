@@ -6,8 +6,8 @@
     "payments",
     "api"
   ],
-  "homepage": "https://github.com/CyberSource",
-  "license": "",
+  "homepage": "https://github.com/CyberSource/cybersource-sdk-php",
+  "license": "https://github.com/CyberSource/cybersource-sdk-php/blob/master/LICENSE",
   "authors": [
     {
       "name": "CyberSource",

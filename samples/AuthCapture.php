@@ -3,9 +3,9 @@
 // capture request.
 
 // Using Composer-generated autoload file.
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 // Or, uncomment the line below if you're not using Composer autoloader.
-// require_once('lib/CybsSoapClient.php');
+// require_once(__DIR__ . '/../lib/CybsSoapClient.php');
 
 
 // Before using this example, you can use your own reference code for the transaction.

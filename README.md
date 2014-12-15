@@ -1,18 +1,19 @@
 #CyberSource PHP Client
 
-This is the PHP client for the CyberSource SOAP Toolkit API.
+This is the PHP client for the [CyberSource SOAP Toolkit API](http://www.cybersource.com/developers/getting_started/integration_methods/soap_toolkit_api).
 
 
 ##Prerequisites
 
 - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://php.net/manual/en/book.soap.php) extensions must be enabled
-- A CyberSource merchant ID and transaction key. You will need to set these in the cybs.ini file in ````lib/conf````.
+- A CyberSource account. You can create an evaluation account [here](http://www.cybersource.com/register/).
+- A CyberSource transaction key. You will need to set your merchant ID and transaction key in the ````cybs.ini```` file in ````lib/conf````. Instructions on obtaining a transaction key can be found [here](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/).
 
 
 ##Installation
 
-You can install the client either via [Composer](https://getcomposer.org/) or manually.
+You can install the client either via [Composer](https://getcomposer.org/) or manually. Before installing, make sure to configure the merchant ID, transaction key, and the WSDL file URL in ````cybs.ini````. By default, the WSDL file for the client is for API version 1.109.
 
 ###Installing with Composer
 You'll first need to make sure you have Composer installed. You can follow the instructions on the [official web site](https://getcomposer.org/download/). Once Composer is installed, you can enter the project root and run:
@@ -33,12 +34,32 @@ require_once('/path/to/project/lib/CybsSoapClient.php');
 ``` 
 
 
+##Getting Started
+The PHP client will generate the request message headers for you, and will contain the methods specified by the WSDL file. The main method you'll use is ````runTransaction()````. To run a transaction, you'll first need to construct a client to generate a request object, which you can populate with the necessary fields (see [documentation](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/) for sample requests). The object will be converted into XML, so the properties of the object will need to correspond to the correct XML format.
+
+```php
+$client = new CybsSoapClient();
+$request = $client->createRequest();
+
+$card = new stdClass();
+$card->accountNumber = '4111111111111111';
+$card->expirationMonth = '12';
+$card->expirationYear = '2020';
+$request->card = $card;
+
+// Populate $request here with other necessary properties
+
+$reply = $client->runTransaction($request);
+```
+
 ##Running the Samples
-The samples in the ````samples```` directory can be run from the project root. For example:
+After configuring your merchant ID and transaction key in ````cybs.ini````, the samples in the ````samples```` directory can be run from the project root. For example:
 
 ```
 php samples/Sale.php
 ```
+
+The samples will output the response object for each request if successful.
 
 ##Tests
 

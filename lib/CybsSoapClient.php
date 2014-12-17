@@ -115,7 +115,7 @@ class CybsSoapClient extends SoapClient
         $request = new stdClass();
         $request->merchantID = $this->merchantId;
         $request->merchantReferenceCode = $merchantReferenceCode;
-        $request->clientLibrary = "PHP";
+        $request->clientLibrary = "CyberSource PHP 2.0.0";
         $request->clientLibraryVersion = phpversion();
         $request->clientEnvironment = php_uname();
         return $request;

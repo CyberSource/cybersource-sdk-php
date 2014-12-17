@@ -8,12 +8,15 @@ This is the PHP client for the [CyberSource SOAP Toolkit API](http://www.cyberso
 - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://php.net/manual/en/book.soap.php) extensions must be enabled
 - A CyberSource account. You can create an evaluation account [here](http://www.cybersource.com/register/).
-- A CyberSource transaction key. You will need to set your merchant ID and transaction key in the ````cybs.ini```` file in ````lib/conf````. Instructions on obtaining a transaction key can be found [here](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/).
+- A CyberSource transaction key. You will need to set your merchant ID and transaction key in the ````cybs.ini```` file in ````lib/conf````. Instructions on obtaining a transaction key can be found [here](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/wwhelp/wwhimpl/js/html/wwhelp.htm#href=Intro.04.3.html).
 
 
 ##Installation
 
-You can install the client either via [Composer](https://getcomposer.org/) or manually. Before installing, make sure to configure the merchant ID, transaction key, and the WSDL file URL in ````cybs.ini````. By default, the WSDL file for the client is for API version 1.109.
+You can install the client either via [Composer](https://getcomposer.org/) or manually. Before installing, make sure to configure the merchant ID, transaction key, and the WSDL file URL in ````cybs.ini````. By default, the WSDL file for the client is for API version 1.109 (the latest when this package was created). Available WSDL file URLs can be browsed at the following locations:
+
+- [test](https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor/)
+- [live](https://ics2ws.ic3.com/commerce/1.x/transactionProcessor/)
 
 ###Installing with Composer
 You'll first need to make sure you have Composer installed. You can follow the instructions on the [official web site](https://getcomposer.org/download/). Once Composer is installed, you can enter the project root and run:
@@ -67,6 +70,8 @@ In order to run tests, you'll need [PHPUnit](https://phpunit.de). You'll also ne
 ```
 composer.phar dump-autoload
 ```
+
+If you installed PHPUnit with Composer, run the tests from the project root with the command ````vendor/bin/phpunit````.
 
 ##Documentation
 

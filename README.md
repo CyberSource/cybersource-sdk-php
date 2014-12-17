@@ -62,7 +62,7 @@ After configuring your merchant ID and transaction key in ````cybs.ini````, the 
 php samples/Sale.php
 ```
 
-The samples will output the response object for each request if successful.
+The samples will output the response object for each request if successful. Note that the samples contain test data and should not be run in a live environment. 
 
 ##Tests
 

@@ -38,7 +38,7 @@ require_once('/path/to/project/lib/CybsSoapClient.php');
 
 
 ##Getting Started
-The PHP client will generate the request message headers for you, and will contain the methods specified by the WSDL file. The main method you'll use is ````runTransaction()````. To run a transaction, you'll first need to construct a client to generate a request object, which you can populate with the necessary fields (see [documentation](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/) for sample requests). The object will be converted into XML, so the properties of the object will need to correspond to the correct XML format.
+The PHP client will generate the request message headers for you, and will contain the methods specified by the WSDL file. The main method you'll use is ````runTransaction()````. To run a transaction, you'll first need to construct a client to generate a request object, which you can populate with the necessary fields (see [documentation](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/wwhelp/wwhimpl/js/html/wwhelp.htm#href=Intro.04.4.html) for sample requests). The object will be converted into XML, so the properties of the object will need to correspond to the correct XML format.
 
 ```php
 $client = new CybsSoapClient();

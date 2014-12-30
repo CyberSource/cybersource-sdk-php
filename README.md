@@ -2,6 +2,8 @@
 
 This is the PHP client for the [CyberSource SOAP Toolkit API](http://www.cybersource.com/developers/getting_started/integration_methods/soap_toolkit_api).
 
+[![Build Status](https://travis-ci.org/CyberSource/cybersource-sdk-php.png?branch=master)]
+(https://travis-ci.org/CyberSource/cybersource-sdk-php)
 
 ##Prerequisites
 

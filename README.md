@@ -5,6 +5,14 @@ This is the PHP client for the [CyberSource SOAP Toolkit API](http://www.cyberso
 [![Build Status](https://travis-ci.org/CyberSource/cybersource-sdk-php.png?branch=master)]
 (https://travis-ci.org/CyberSource/cybersource-sdk-php)
 
+##Packagist
+The cybersource/sdk-php is available at [Packagist](https://packagist.org/packages/cybersource/sdk-php).
+If you want to install SDK from Packagist,add the following dependency to your application's 'composer.json'.
+
+    "require": {
+    "cybersource/sdk-php": "*"
+     }, 
+
 ##Prerequisites
 
 - PHP 5.3 or above

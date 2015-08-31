@@ -9,6 +9,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__FILE__) . '/con
  */
 class CybsSoapClient extends SoapClient
 {
+    const CLIENT_LIBRARY_VERSION = "CyberSource PHP 1.0.0";
+
     private $merchantId;
     private $transactionKey;
 
@@ -104,6 +106,40 @@ class CybsSoapClient extends SoapClient
         return $this->transactionKey;
     }
 
+    public function simpleXmlToCybsRequest($simpleXml) {
+
+        $vars = get_object_vars($simpleXml);
+        $request = new stdClass();
+        foreach(array_keys($vars) as $key) {
+            $element = $vars[$key];
+            if ($key == 'comment') {
+                continue;
+            }
+            if (is_string($element)) {
+                $request->$key = $element;
+            } else if (is_array($element)) {
+                $array = $element;
+                if ($key == "@attributes") {
+                    // Each attribute in the '@attributes' array should
+                    // instead be a property of the parent element.
+                    // copyAttributes($simpleXml, $array);
+                    foreach($array as $k => $value) {
+                        $request->$k = $value;
+                    }
+                } else {
+                    $newArray = array();
+                    foreach($array as $k => $value) {
+                        $newArray[$k] = $this->simpleXmlToCybsRequest($value);
+                    }
+                    $request->$key = $newArray; 
+                }
+            } else if ($element instanceof SimpleXMLElement) {
+                $request->$key = $this->simpleXmlToCybsRequest($element);
+            }
+        }
+        return $request;
+    }
+
     /**
      * Returns an object initialized with basic client information.
      *
@@ -115,9 +151,25 @@ class CybsSoapClient extends SoapClient
         $request = new stdClass();
         $request->merchantID = $this->merchantId;
         $request->merchantReferenceCode = $merchantReferenceCode;
-        $request->clientLibrary = "CyberSource PHP 1.0.0";
+        $request->clientLibrary = self::CLIENT_LIBRARY_VERSION;
         $request->clientLibraryVersion = phpversion();
         $request->clientEnvironment = php_uname();
         return $request;
+    }
+
+    /**
+     * Runs a transaction from an XML file
+     *
+     * @param string $filePath The path to the XML file
+     * @param string $merchantReferenceCode Desired reference code for the request
+     * @return stdClass An object representation of the transaction response.     
+     */
+    public function runTransactionFromXml($filePath, $merchantReferenceCode)
+    {
+        $request = $this->createRequest($merchantReferenceCode);
+        $xml = simplexml_load_string(file_get_contents($filePath));
+        $xmlRequest = $this->simpleXmlToCybsRequest($xml);
+        $mergedRequest = (object) array_merge((array) $request, (array) $xmlRequest);
+        return $this->runTransaction($mergedRequest);
     }
 }

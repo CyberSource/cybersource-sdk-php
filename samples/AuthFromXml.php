@@ -12,7 +12,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $referenceCode = 'your_merchant_reference_code';
 
 $client = new CybsSoapClient();
-$reply = $client->runTransactionFromXml(__DIR__ . '/xml/auth.xml', $referenceCode);
+$reply = $client->runTransactionFromFile(__DIR__ . '/xml/auth.xml', $referenceCode);
 
 // This section will show all the reply fields.
 print("\nRESPONSE: " . print_r($reply, true));

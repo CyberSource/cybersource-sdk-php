@@ -16,10 +16,17 @@ class CybsSoapClient extends CybsClient
         parent::__construct($options, $properties);
     }
 
-    public function simpleXmlToCybsRequest($simpleXml) {
-
+    /**
+     * Returns a properly formatted request object from a SimpleXMLElement. 
+     *
+     * @param SimpleXMLElement $simpleXml Representation of an XML structure
+     * @return stdClass A request with the data from the SimpleXMLElement.
+     */
+    public function simpleXmlToCybsRequest($simpleXml)
+    {
         $vars = get_object_vars($simpleXml);
         $request = new stdClass();
+
         foreach(array_keys($vars) as $key) {
             $element = $vars[$key];
             if ($key == 'comment') {
@@ -83,7 +90,7 @@ class CybsSoapClient extends CybsClient
     }
 
     /**
-     * Runs a transaction from an XML file
+     * Runs a transaction from an XML file.
      *
      * @param string $filePath The path to the XML file
      * @param string $merchantReferenceCode Desired reference code for the request

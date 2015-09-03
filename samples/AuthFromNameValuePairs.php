@@ -15,8 +15,8 @@ $client = new CybsNameValuePairClient();
 
 $request = array();
 $request['ccAuthService_run'] = 'true';
-$request['merchantID'] = 'dvaldez';
-$request['merchantReferenceCode'] = 'MRC-14344';
+$request['merchantID'] = 'your_merchant_id';
+$request['merchantReferenceCode'] = $referenceCode;
 $request['billTo_firstName'] = 'Jane';
 $request['billTo_lastName'] = 'Smith';
 $request['billTo_street1'] = '1295 Charleston Road';

@@ -5,7 +5,7 @@
 // Using Composer-generated autoload file.
 require __DIR__ . '/../vendor/autoload.php';
 // Or, uncomment the line below if you're not using Composer autoloader.
-// require_once(__DIR__ . '/../lib/CybsSoapClient.php');
+// require_once(__DIR__ . '/../lib/CybsNameValuePairClient.php');
 
 
 // Before using this example, you can use your own reference code for the transaction.
@@ -15,7 +15,6 @@ $client = new CybsNameValuePairClient();
 
 $request = array();
 $request['ccAuthService_run'] = 'true';
-$request['merchantID'] = 'your_merchant_id';
 $request['merchantReferenceCode'] = $referenceCode;
 $request['billTo_firstName'] = 'Jane';
 $request['billTo_lastName'] = 'Smith';
@@ -34,4 +33,6 @@ $request['item_1_unitPrice'] = '56.78';
 $reply = $client->runTransaction($request);
 
 // This section will show all the reply fields.
+echo '<pre>';
 print("\nRESPONSE:\n" . $reply);
+echo '</pre>';

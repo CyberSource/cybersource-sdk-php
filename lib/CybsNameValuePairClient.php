@@ -28,6 +28,9 @@ class CybsNameValuePairClient extends CybsClient
         if (!is_array($request)) {
             throw new Exception('Name-value pairs must be in array');
         }
+        if (!array_key_exists('merchantID', $request)) {
+            $request['merchantID'] = $this->getMerchantId();
+        }
         $nvpRequest = "";
         foreach($request as $k => $v) {
             $nvpRequest .= ($k . "=" . $v ."\n");

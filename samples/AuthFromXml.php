@@ -15,4 +15,6 @@ $client = new CybsSoapClient();
 $reply = $client->runTransactionFromFile(__DIR__ . '/xml/auth.xml', $referenceCode);
 
 // This section will show all the reply fields.
+echo '<pre>';
 print("\nRESPONSE: " . print_r($reply, true));
+echo '</pre>';

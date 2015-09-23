@@ -54,13 +54,14 @@ $request->recurringSubscriptionInfo = $recurringSubscriptionInfo;
 $reply = $client->runTransaction($request);
 
 // This section will show all the reply fields.
+echo '<pre>';
 print("\nSUBSCRIPTION RESPONSE: " . print_r($reply, true));
 
 if ($reply->decision != 'ACCEPT') {
     print("\nFailed subscription request.\n");
-    return;
 }
 else
 {
     print("\n Subscription service request successful\n");
 }
+echo '</pre>';

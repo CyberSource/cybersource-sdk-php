@@ -56,6 +56,7 @@ $request->item = array($item0, $item1);
 $reply = $client->runTransaction($request);
 
 // This section will show all the reply fields.
+echo '<pre>';
 print("\nAUTH RESPONSE: " . print_r($reply, true));
 
 if ($reply->decision != 'ACCEPT') {
@@ -76,4 +77,5 @@ $captureRequest->purchaseTotals = $purchaseTotals;
 $captureReply = $client->runTransaction($captureRequest);
 
 // This section will show all the reply fields.
-print("\nCAPTRUE RESPONSE: " . print_r($captureReply, true));
+print("\nCAPTURE RESPONSE: " . print_r($captureReply, true));
+echo '</pre>';

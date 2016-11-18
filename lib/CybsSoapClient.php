@@ -10,9 +10,11 @@ include 'CybsClient.php';
 class CybsSoapClient extends CybsClient
 {
 
-    function __construct($options=array())
+    function __construct($options=array(), $properties=array())
     {
-        $properties = parse_ini_file('cybs.ini');
+        if (empty($properties)) {
+            $properties = parse_ini_file('cybs.ini');
+        }
         parent::__construct($options, $properties);
     }
 

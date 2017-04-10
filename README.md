@@ -31,7 +31,7 @@ Once Composer is installed, you can enter the project root and run:
 composer.phar require cybersource/sdk-php
 ```
 
-Alternatively you can mennually add the dependency to your composer.json file
+Alternatively you can manually add the dependency to your composer.json file
 
 ```json
 "require": {

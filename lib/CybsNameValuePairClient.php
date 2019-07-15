@@ -20,7 +20,7 @@ class CybsNameValuePairClient extends CybsClient
     /**
      * Runs a transaction from a name-value pair array
      *
-     * @param string $request An array of name-value pairs
+     * @param array $request An array of name-value pairs
      * @return string Response of name-value pairs delimited by a new line
      */
     public function runTransaction($request)

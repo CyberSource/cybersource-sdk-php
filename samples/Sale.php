@@ -46,6 +46,7 @@ $purchaseTotals = new stdClass();
 $purchaseTotals->currency = 'USD';
 $purchaseTotals->grandTotalAmount = '90.01';
 $request->purchaseTotals = $purchaseTotals;
+//$request->merchantID = '<merchantID>';
 
 $reply = $client->runTransaction($request);
 

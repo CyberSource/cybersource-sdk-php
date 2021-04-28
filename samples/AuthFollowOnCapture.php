@@ -31,6 +31,7 @@ $billTo->country = 'US';
 $billTo->email = 'null@cybersource.com';
 $billTo->ipAddress = '10.7.111.111';
 $request->billTo = $billTo;
+//$request->merchantID = '<merchantID>';
 
 $card = new stdClass();
 $card->accountNumber = '4111111111111111';
@@ -73,7 +74,7 @@ $captureRequest = $client->createRequest($referenceCode);
 $captureRequest->ccCaptureService = $ccCaptureService;
 $captureRequest->item = array($item0, $item1);
 $captureRequest->purchaseTotals = $purchaseTotals;
-
+//$captureRequest->merchantID = '<merchantID>';
 $captureReply = $client->runTransaction($captureRequest);
 
 // This section will show all the reply fields.

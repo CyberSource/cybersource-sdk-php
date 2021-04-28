@@ -30,6 +30,8 @@ $request['card_expirationYear'] = '2021';
 $request['purchaseTotals_currency'] = 'USD';
 $request['item_0_unitPrice'] = '12.34';
 $request['item_1_unitPrice'] = '56.78';
+//$request['merchantID'] = '<merchantID>';
+
 $reply = $client->runTransaction($request);
 
 // This section will show all the reply fields.

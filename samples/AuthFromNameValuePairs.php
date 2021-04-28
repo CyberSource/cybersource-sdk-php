@@ -5,7 +5,7 @@
 // Using Composer-generated autoload file.
 require __DIR__ . '/../vendor/autoload.php';
 // Or, uncomment the line below if you're not using Composer autoloader.
-// require_once(__DIR__ . '/../lib/CybsNameValuePairClient.php');
+//require_once(__DIR__ . '/../lib/CybsNameValuePairClient.php');
 
 
 // Before using this example, you can use your own reference code for the transaction.
@@ -26,7 +26,7 @@ $request['billTo_country'] = 'US';
 $request['billTo_email'] = 'jsmith@example.com';
 $request['card_accountNumber'] = '4111111111111111';
 $request['card_expirationMonth'] = '12';
-$request['card_expirationYear'] = '2019';
+$request['card_expirationYear'] = '2021';
 $request['purchaseTotals_currency'] = 'USD';
 $request['item_0_unitPrice'] = '12.34';
 $request['item_1_unitPrice'] = '56.78';

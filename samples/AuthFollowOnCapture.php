@@ -5,7 +5,7 @@
 // Using Composer-generated autoload file.
 require __DIR__ . '/../vendor/autoload.php';
 // Or, uncomment the line below if you're not using Composer autoloader.
-// require_once(__DIR__ . '/../lib/CybsSoapClient.php');
+//require_once(__DIR__ . '/../lib/CybsSoapClient.php');
 
 
 // Before using this example, you can use your own reference code for the transaction.
@@ -35,7 +35,7 @@ $request->billTo = $billTo;
 $card = new stdClass();
 $card->accountNumber = '4111111111111111';
 $card->expirationMonth = '12';
-$card->expirationYear = '2020';
+$card->expirationYear = '2021';
 $request->card = $card;
 
 $purchaseTotals = new stdClass();

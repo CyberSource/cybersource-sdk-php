@@ -14,7 +14,6 @@ class CybsClient extends SoapClient
 
     private $merchantId;
     private $transactionKey;
-    private $senderId;
 
     function __construct($options=array(), $properties, $nvp=false)
     {
@@ -41,16 +40,11 @@ class CybsClient extends SoapClient
         parent::__construct($wsdl, $options);
         $this->merchantId = $properties['merchant_id'];
         $this->transactionKey = $properties['transaction_key'];
-        $this->senderId = $properties['sender_id'];
-
-        if(!$this->senderId) {
-            $this->senderId = $this->merchantId;
-        }
 
         $nameSpace = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
 
         $soapUsername = new SoapVar(
-            $this->senderId,
+            $this->merchantId,
             XSD_STRING,
             NULL,
             $nameSpace,
@@ -118,13 +112,5 @@ class CybsClient extends SoapClient
     public function getTransactionKey()
     {
         return $this->transactionKey;
-    }
-
-    /**
-     * @return string The client's sender ID.
-     */
-    public function getSenderId()
-    {
-        return $this->senderId;
     }
 }

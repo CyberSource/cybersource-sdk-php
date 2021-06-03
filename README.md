@@ -27,7 +27,8 @@ You can install the client either via [Composer](https://getcomposer.org/) or ma
 ### Installing with Composer
 You'll first need to make sure you have Composer installed. You can follow the instructions on the [official web site](https://getcomposer.org/download/). Once Composer is installed, you can enter the project root and run:
 ```
-composer.phar install
+composer.phar install - Linux
+composer install - Windows
 ```
 Then, to use the client, you'll need to include the Composer-generated autoload file:
 

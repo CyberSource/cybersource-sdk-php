@@ -1,6 +1,8 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+use PHPUnit\Framework\TestCase;
 
-class CybsSoapClientTestCase extends PHPUnit_Framework_TestCase
+class CybsSoapClientTestCase extends TestCase
 {
     public function testClient()
     {

@@ -13,7 +13,7 @@ If you want to install SDK from Packagist,add the following dependency to your a
 ```
 ## Prerequisites
 
-- PHP 5.3 or above
+- PHP 7.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://php.net/manual/en/book.soap.php) extensions must be enabled
 - A CyberSource account. You can create an evaluation account [here](http://www.cybersource.com/register/).
 - A CyberSource transaction key. You will need to set your merchant ID and transaction key in the ````cybs.ini```` file in ````lib/conf````. Instructions on obtaining a transaction key can be found [here](http://www.cybersource.com/developers/integration_methods/simple_order_and_soap_toolkit_api/soap_api/html/wwhelp/wwhimpl/js/html/wwhelp.htm#href=Intro.04.3.html).
@@ -30,6 +30,12 @@ You'll first need to make sure you have Composer installed. You can follow the i
 Linux: composer.phar install 
 Windows: composer install 
 ```
+If you already have composer installed for the project, you'll need to run the update command as below
+```
+Linux: composer.phar update 
+Windows: composer update
+```
+
 Then, to use the client, you'll need to include the Composer-generated autoload file:
 
 ```php

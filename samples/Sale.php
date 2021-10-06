@@ -39,13 +39,14 @@ $request->billTo = $billTo;
 $card = new stdClass();
 $card->accountNumber = '4111111111111111';
 $card->expirationMonth = '12';
-$card->expirationYear = '2020';
+$card->expirationYear = '2021';
 $request->card = $card;
 
 $purchaseTotals = new stdClass();
 $purchaseTotals->currency = 'USD';
 $purchaseTotals->grandTotalAmount = '90.01';
 $request->purchaseTotals = $purchaseTotals;
+//$request->merchantID = '<merchantID>';
 
 $reply = $client->runTransaction($request);
 

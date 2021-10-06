@@ -2,6 +2,7 @@
 <requestMessage
 	xmlns="urn:schemas-cybersource-com:transaction-data-_1.109_">                       -->
 	<merchantReferenceCode>your_merchant_reference_code</merchantReferenceCode>
+	<!--<merchantID>cybs_test_new1</merchantID>-->
 	<billTo>
 		<firstName>John</firstName>
 		<lastName>Doe</lastName>
@@ -35,7 +36,7 @@
 	<card>
 		<accountNumber>4111111111111111</accountNumber>
 		<expirationMonth>12</expirationMonth>
-		<expirationYear>2020</expirationYear>
+		<expirationYear>2021</expirationYear>
 	</card>
 	<ccAuthService run="true">
 	</ccAuthService>

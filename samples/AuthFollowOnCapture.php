@@ -5,7 +5,7 @@
 // Using Composer-generated autoload file.
 require __DIR__ . '/../vendor/autoload.php';
 // Or, uncomment the line below if you're not using Composer autoloader.
-// require_once(__DIR__ . '/../lib/CybsSoapClient.php');
+//require_once(__DIR__ . '/../lib/CybsSoapClient.php');
 
 
 // Before using this example, you can use your own reference code for the transaction.
@@ -31,11 +31,12 @@ $billTo->country = 'US';
 $billTo->email = 'null@cybersource.com';
 $billTo->ipAddress = '10.7.111.111';
 $request->billTo = $billTo;
+//$request->merchantID = '<merchantID>';
 
 $card = new stdClass();
 $card->accountNumber = '4111111111111111';
 $card->expirationMonth = '12';
-$card->expirationYear = '2020';
+$card->expirationYear = '2021';
 $request->card = $card;
 
 $purchaseTotals = new stdClass();
@@ -73,7 +74,7 @@ $captureRequest = $client->createRequest($referenceCode);
 $captureRequest->ccCaptureService = $ccCaptureService;
 $captureRequest->item = array($item0, $item1);
 $captureRequest->purchaseTotals = $purchaseTotals;
-
+//$captureRequest->merchantID = '<merchantID>';
 $captureReply = $client->runTransaction($captureRequest);
 
 // This section will show all the reply fields.

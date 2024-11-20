@@ -71,8 +71,8 @@ class CybsSoapClient extends CybsClient
         $request = new stdClass();
         $request->merchantID = $this->getMerchantId();
         $request->merchantReferenceCode = $merchantReferenceCode;
-        $request->clientLibrary = self::CLIENT_LIBRARY_VERSION;
-        $request->clientLibraryVersion = phpversion();
+        $request->clientLibrary = self::CLIENT_LIBRARY;
+        $request->clientLibraryVersion = self::CLIENT_LIBRARY_VERSION;
         $request->clientEnvironment = php_uname();
         return $request;
     }

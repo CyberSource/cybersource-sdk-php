@@ -16,11 +16,11 @@ class PropertiesUtility
         }
 
         $filePath = rtrim($keyDirectory, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $keyFile;
-    
+
         if (!file_exists($filePath) || !is_file($filePath)) {
             throw new InvalidArgumentException("Key Directory and Key File values are not valid or the file does not exist.");
         }
-    
+
         return true;
     }
 

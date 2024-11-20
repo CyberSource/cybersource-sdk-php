@@ -29,8 +29,8 @@ class SecurityUtility
             array_walk($pubcert, 'trim');
             $pubcert = implode('', $pubcert);
             unset($certs);
-        } 
-        else 
+        }
+        else
         {
             // for PEM files
             $privateKeyId = openssl_pkey_get_private($certificate);

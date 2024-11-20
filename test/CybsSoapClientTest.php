@@ -17,6 +17,6 @@ class CybsSoapClientTestCase extends TestCase
         $this->assertEquals(
             $properties['transaction_key'],
             $client->getTransactionKey()
-        );        
+        );
     }
 }

@@ -51,7 +51,7 @@ class CybsSoapClient extends CybsClient
                     foreach($array as $k => $value) {
                         $newArray[$k] = $this->simpleXmlToCybsRequest($value);
                     }
-                    $request->$key = $newArray; 
+                    $request->$key = $newArray;
                 }
             } else if ($element instanceof SimpleXMLElement) {
                 $request->$key = $this->simpleXmlToCybsRequest($element);

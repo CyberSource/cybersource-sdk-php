@@ -159,7 +159,7 @@ $client->runTransactionFromXml($xml);
 
 ### Using name-value pairs
 
-In order to run transactions using name-value pairs, make sure to set the value for the WSDL for the NVP transaction processor in `cybs.ini`. 
+In order to run transactions using name-value pairs, make sure to set the value for the WSDL for the NVP transaction processor in `cybs.ini`.
 
 Then use the `CybsNameValuePairClient` as follows:
 
@@ -176,7 +176,7 @@ $reply = $client->runTransaction($request);
 
 ## Running the Samples
 
-After configuring your merchant ID and transaction key in `cybs.ini`, the samples in the `samples` directory can be run from the project root. 
+After configuring your merchant ID and transaction key in `cybs.ini`, the samples in the `samples` directory can be run from the project root.
 
 For example:
 
@@ -184,7 +184,7 @@ For example:
 php samples/Sale.php
 ```
 
-The samples will output the response object for each request if successful. 
+The samples will output the response object for each request if successful.
 
 > > **Note that the samples contain test data and should *NOT* be run in a live environment.**
 

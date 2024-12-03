@@ -21,10 +21,7 @@ class SecurityUtility
             $pubcert = explode("\n", $certs['cert']);
             array_shift($pubcert);
 
-            while (!trim(array_pop($pubcert)))
-            {
-
-            }
+            while (!trim(array_pop($pubcert))) { /* Empty whlie loop */ }
 
             array_walk($pubcert, 'trim');
             $pubcert = implode('', $pubcert);
@@ -44,24 +41,6 @@ class SecurityUtility
         $tokenElement->setAttribute('EncodingType', 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary');
         $tokenElement->setAttributeNS(self::WSU_NS, 'wsu:Id', "X509Token");
         return $tokenElement;
-    }
-
-    /**
-     * Sample UUID function, based on random number or provided data
-     *
-     * @param mixed $data
-     * @return string
-     */
-    function getUUID($data = null)
-    {
-        if ($data === null)
-        {
-            $data = microtime() . uniqid();
-        }
-
-        $id = md5($data);
-
-        return sprintf('%08s-%04s-%04s-%04s-%012s', substr($id, 0, 8), substr($id, 8, 4), substr($id, 12, 4), substr(16, 4), substr($id, 20));
     }
 
     /**

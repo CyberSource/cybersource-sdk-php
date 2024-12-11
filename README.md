@@ -18,6 +18,8 @@ You must upgrade the SOAP Authentication to use P12 by February 13, 2025.
 
 You must create a P12 certificate. See the [REST Getting Started Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/platform/developer/all/rest/rest-getting-started/restgs-jwt-message-intro/restgs-security-p12-intro.html).
 
+> > **IMPORTANT : This P12 certificate is considered as a sensitive data. It is advised to store this in a secure manner. If the certificate is compromised, immediately revoke the certificate from EBC and request a new certificate.**
+
 ## Packagist
 
 The cybersource/sdk-php is available at [Packagist](https://packagist.org/packages/cybersource/sdk-php).

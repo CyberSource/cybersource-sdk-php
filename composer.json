@@ -7,7 +7,7 @@
     "api"
   ],
   "homepage": "https://github.com/CyberSource/cybersource-sdk-php",
-  "license": "Proprietary",
+  "license": "proprietary",
   "authors": [
     {
       "name": "CyberSource",

@@ -14,8 +14,8 @@ $referenceCode = 'your_merchant_reference_code';
 $client = new CybsSoapClient();
 $request = $client->createRequest($referenceCode);
 
-// This section contains a sample transaction request for the authorization 
-// service with complete billing, payment card, and purchase (two items) information.   
+// This section contains a sample transaction request for the authorization
+// service with complete billing, payment card, and purchase (two items) information.
 $ccAuthService = new stdClass();
 $ccAuthService->run = 'true';
 $request->ccAuthService = $ccAuthService;
@@ -36,7 +36,7 @@ $request->billTo = $billTo;
 $card = new stdClass();
 $card->accountNumber = '4111111111111111';
 $card->expirationMonth = '12';
-$card->expirationYear = '2021';
+$card->expirationYear = '2035';
 $request->card = $card;
 
 $purchaseTotals = new stdClass();

@@ -9,15 +9,19 @@ include 'CybsClient.php';
  */
 class CybsSoapClient extends CybsClient
 {
-
-    function __construct($options=array())
+    function __construct($options = array())
     {
-        $properties = parse_ini_file('cybs.ini');
+        $properties = parse_ini_file('cybs.ini', true);
+
+        if (!$properties) {
+            throw new Exception('Unable to read cybs.ini.');
+        }
+
         parent::__construct($options, $properties);
     }
 
     /**
-     * Returns a properly formatted request object from a SimpleXMLElement. 
+     * Returns a properly formatted request object from a SimpleXMLElement.
      *
      * @param SimpleXMLElement $simpleXml Representation of an XML structure
      * @return stdClass A request with the data from the SimpleXMLElement.
@@ -47,7 +51,7 @@ class CybsSoapClient extends CybsClient
                     foreach($array as $k => $value) {
                         $newArray[$k] = $this->simpleXmlToCybsRequest($value);
                     }
-                    $request->$key = $newArray; 
+                    $request->$key = $newArray;
                 }
             } else if ($element instanceof SimpleXMLElement) {
                 $request->$key = $this->simpleXmlToCybsRequest($element);
@@ -67,8 +71,8 @@ class CybsSoapClient extends CybsClient
         $request = new stdClass();
         $request->merchantID = $this->getMerchantId();
         $request->merchantReferenceCode = $merchantReferenceCode;
-        $request->clientLibrary = self::CLIENT_LIBRARY_VERSION;
-        $request->clientLibraryVersion = phpversion();
+        $request->clientLibrary = self::CLIENT_LIBRARY;
+        $request->clientLibraryVersion = self::CLIENT_LIBRARY_VERSION;
         $request->clientEnvironment = php_uname();
         return $request;
     }
@@ -78,7 +82,7 @@ class CybsSoapClient extends CybsClient
      *
      * @param string $filePath The path to the XML file
      * @param string $merchantReferenceCode Desired reference code for the request
-     * @return stdClass An object representation of the transaction response.     
+     * @return stdClass An object representation of the transaction response.
      */
     public function runTransactionFromXml($xml, $merchantReferenceCode)
     {
@@ -86,7 +90,7 @@ class CybsSoapClient extends CybsClient
         $simpleXml = simplexml_load_string($xml);
         $xmlRequest = $this->simpleXmlToCybsRequest($simpleXml);
         $mergedRequest = (object) array_merge((array) $request, (array) $xmlRequest);
-        return $this->runTransaction($mergedRequest);
+        return parent::runTransaction($mergedRequest);
     }
 
     /**
@@ -94,7 +98,7 @@ class CybsSoapClient extends CybsClient
      *
      * @param string $filePath The path to the XML file
      * @param string $merchantReferenceCode Desired reference code for the request
-     * @return stdClass An object representation of the transaction response.     
+     * @return stdClass An object representation of the transaction response.
      */
     public function runTransactionFromFile($filePath, $merchantReferenceCode)
     {

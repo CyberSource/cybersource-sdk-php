@@ -7,3 +7,5 @@
 
 # CyberSource config parameters
 /lib/conf/cybs.ini
+
+.vscode

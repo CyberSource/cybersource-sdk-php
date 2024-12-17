@@ -13,7 +13,12 @@ class CybsNameValuePairClient extends CybsClient
 
     function __construct($options=array())
     {
-        $properties = parse_ini_file('cybs.ini');
+        $properties = parse_ini_file('cybs.ini', true);
+
+        if (!$properties) {
+            throw new Exception('Unable to read cybs.ini.');
+        }
+
         parent::__construct($options, $properties, true);
     }
 

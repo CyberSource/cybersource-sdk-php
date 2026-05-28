@@ -38,7 +38,17 @@ class CybsNameValuePairClient extends CybsClient
         }
         $nvpRequest = "";
         foreach($request as $k => $v) {
-            $nvpRequest .= ($k . "=" . $v ."\n");
+            // Sanitize key: remove newlines and validate no '=' characters
+            $sanitizedKey = str_replace(["\n", "\r"], '', (string)$k);
+            if (strpos($sanitizedKey, '=') !== false) {
+                throw new Exception("Invalid key: parameter names cannot contain '=' character");
+            }
+            
+            // Sanitize value: remove newlines and URL-encode to prevent injection
+            $sanitizedValue = str_replace(["\n", "\r"], '', (string)$v);
+            $sanitizedValue = urlencode($sanitizedValue);
+            
+            $nvpRequest .= ($sanitizedKey . "=" . $sanitizedValue . "\n");
         }
         return parent::runTransaction($nvpRequest);
     }

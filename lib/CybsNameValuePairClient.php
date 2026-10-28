@@ -25,8 +25,14 @@ class CybsNameValuePairClient extends CybsClient
     /**
      * Runs a transaction from a name-value pair array
      *
-     * @param string $request An array of name-value pairs
-     * @return string Response of name-value pairs delimited by a new line
+     * @param string $request An array of name-value pairs. Callers should
+     *                validate each field against its expected business format
+     *                (allow-list per field) before submission; the library only
+     *                enforces NVP format integrity, not per-field semantics.
+     * @return string Response of name-value pairs delimited by a new line.
+     *                The response is returned raw and unencoded; the caller is
+     *                responsible for encoding it for their specific output
+     *                context (e.g. htmlspecialchars() for HTML) before display.
      */
     public function runTransaction($request)
     {
@@ -43,10 +49,13 @@ class CybsNameValuePairClient extends CybsClient
             if (strpos($sanitizedKey, '=') !== false) {
                 throw new Exception("Invalid key: parameter names cannot contain '=' character");
             }
-            
-            // Sanitize value: remove newlines and URL-encode to prevent injection
+
+            // Sanitize value: strip newlines so a value cannot inject an extra
+            // name-value pair.
+            // XML-special characters are escaped by SoapClient
+            // when it serializes the request, so no URL-encoding is needed (and
+            // it would corrupt the data, since the NVP endpoint does not decode).
             $sanitizedValue = str_replace(["\n", "\r"], '', (string)$v);
-            $sanitizedValue = urlencode($sanitizedValue);
             
             $nvpRequest .= ($sanitizedKey . "=" . $sanitizedValue . "\n");
         }

@@ -34,7 +34,7 @@ If you want to install SDK from Packagist,add the following dependency to your a
 
 ## Prerequisites
 
-- PHP 7.3 or above
+- PHP 8.0 or above
 
    - [curl](http://php.net/manual/en/book.curl.php), [openssl](http://php.net/manual/en/book.openssl.php), [soap](http://php.net/manual/en/book.soap.php) extensions must be enabled
 

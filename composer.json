@@ -15,13 +15,13 @@
     }
   ],
   "require": {
-    "php": ">=7.3",
+    "php": ">=8.0",
     "ext-curl": "*",
     "ext-openssl": "*",
     "ext-soap": "*"
   },
   "require-dev": {
-      "phpunit/phpunit": "9.5.*"
+      "phpunit/phpunit": "^9.6.23"
   },
   "autoload": {
     "classmap": ["lib/"]

@@ -18,13 +18,7 @@ class SecurityUtility
             // for PKCS12 files
             openssl_pkcs12_read($certificate, $certs, $keyPass);
             $privateKeyId = openssl_pkey_get_private($certs['pkey']);
-            $pubcert = explode("\n", $certs['cert']);
-            array_shift($pubcert);
-
-            while (!trim(array_pop($pubcert))) { /* Empty whlie loop */ }
-
-            array_walk($pubcert, 'trim');
-            $pubcert = implode('', $pubcert);
+            $pubcert = $certs['cert'];
             unset($certs);
         }
         else
@@ -34,6 +28,16 @@ class SecurityUtility
             $tempcert = openssl_x509_read($certificate);
             openssl_x509_export($tempcert, $pubcert);
         }
+
+        // trim
+        $pubcert = explode("\n", $pubcert);
+        array_shift($pubcert);
+
+        while (!trim(array_pop($pubcert))) { /* Empty while loop */ }
+
+        array_walk($pubcert, 'trim');
+        $pubcert = implode('', $pubcert);
+
 
         // add public key reference to the token
         $tokenElement = $xmlDom->createElementNS(self::WSSE_NS, 'wsse:BinarySecurityToken', $pubcert);

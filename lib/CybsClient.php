@@ -86,8 +86,7 @@ class CybsClient extends SoapClient
         return $this->merchantId;
     }
 
-    #[\ReturnTypeWillChange]
-    function __doRequest($request, $location, $action, $version, $oneWay = false)
+    function __doRequest($request, $location, $action, $version, $oneWay = false, ?string $uriParserClass = null): ?string
     {
         // Load request and add security headers
         $requestDom = new DOMDocument('1.0', 'utf-8');
@@ -135,6 +134,6 @@ class CybsClient extends SoapClient
         // Convert Document to String
         $request = $requestDom->saveXML();
 
-        return parent::__doRequest($request, $location, $action, $version, $oneWay);
+        return parent::__doRequest($request, $location, $action, $version, $oneWay, $uriParserClass);
     }
 }
